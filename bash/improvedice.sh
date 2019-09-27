@@ -14,15 +14,19 @@
 
 # Tell the user we have started processing
 echo "Rolling..."
-echo "Enter number of sides for die1"
-read range1
-echo "Enter number of sides for die2"
-read range2
+#echo "Enter number of sides for die1"
+#read range1
+#echo "Enter number of sides for die2"
+#read range2
+range1=6
+range2=10
 bias=1
 # roll the dice and save the results
 die1=$(( RANDOM % $range1 + $bias))
 die2=$(( RANDOM % $range2 + $bias))
 # sum up the rolls
 sum=$(( die1 + die2 ))
+average=$(( $sum / 2))
+fpdividend=$(awk "BEGIN{printf \"%.2f\", $sum / 2 }")
 # display the results
-echo "Rolled $die1, $die2 for a $sum"
+echo "Rolled $die1, $die2 produce a addition of $sum and an average of $average to be precise $fpdividend"
