@@ -9,17 +9,25 @@
 #   - first divided by second gives X with a remainder of Y
 # Improve this script by calculating and displaying the first number raised to the power of the second number
 
-#firstnum=5
-#secondnum=2
-echo"Enter any two numbers"
-read firstnum, secondnum
+
+echo "Enter any two numbers"
+read firstnum
+read secondnum
+substraction=$((firstnum - secondnum))
+multiplication=$((firstnum * secondnum))
+modulus=$((firstnum % secondnum))
+power=$((firstnum ** secondnum))
 sum=$((firstnum + secondnum))
 dividend=$((firstnum / secondnum))
 fpdividend=$(awk "BEGIN{printf \"%.2f\", $firstnum/$secondnum}")
 
 
+
 cat <<EOF
+$firstnum minus $secondnum is $substraction
+$firstnum multiply $secondnum is $multiplication
+$firstnum raised to the power of $secondnum is $power
 $firstnum plus $secondnum is $sum
 $firstnum divided by $secondnum is $dividend
-  - More precisely, it is $fpdividend
+  - More precisely, it is $fpdividend with a remainder of $modulus
 EOF
